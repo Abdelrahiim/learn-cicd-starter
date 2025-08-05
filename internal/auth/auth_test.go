@@ -7,11 +7,11 @@ import (
 
 func TestGetAPIKey(t *testing.T) {
 	tests := []struct {
-		name           string
-		headers        http.Header
-		expectedKey    string
-		expectedError  error
-		shouldError    bool
+		name          string
+		headers       http.Header
+		expectedKey   string
+		expectedError error
+		shouldError   bool
 	}{
 		{
 			name: "valid API key",
@@ -67,18 +67,18 @@ func TestGetAPIKey(t *testing.T) {
 			headers: http.Header{
 				"Authorization": []string{"ApiKey  test-key-with-spaces"},
 			},
-			expectedKey: "",
+			expectedKey:   "",
 			expectedError: nil,
-			shouldError: false,
+			shouldError:   false,
 		},
 		{
 			name: "valid API key with multiple parts",
 			headers: http.Header{
 				"Authorization": []string{"ApiKey test-key extra-part"},
 			},
-			expectedKey: "test-key",
+			expectedKey:   "test-key",
 			expectedError: nil,
-			shouldError: false,
+			shouldError:   false,
 		},
 	}
 
